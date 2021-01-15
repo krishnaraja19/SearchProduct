@@ -4,7 +4,7 @@ Please follow the below procedure
 Extract product-docker.tar file. Please run below command.
 docker image ls
 Step 2: Please check, product image file is available or not.
-Step 3: If it is available, Please run below command. Ant it is not available, Please contact Krishna raja.
+Step 3: If it is available, Please run below command.
 docker container run -p 8080:8080 product
 
 Step 4: You can take below url and browse the url in browser. Then it will provide the result.
