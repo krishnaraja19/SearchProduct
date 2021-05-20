@@ -1,4 +1,4 @@
-package com.krishna.product.entity;
+package com.telenor.product.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

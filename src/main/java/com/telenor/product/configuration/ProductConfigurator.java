@@ -1,4 +1,4 @@
-package com.krishna.product.configuration;
+package com.telenor.product.configuration;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.Resource;
 
-import com.krishna.product.entity.Product;
-import com.krishna.product.exception.ExceptionHelper;
-import com.krishna.product.repository.ProductRepository;
-import com.krishna.product.service.ProductReaderService;
-import com.krishna.product.service.ProductRepositoryImpl;
+import com.telenor.product.entity.Product;
+import com.telenor.product.exception.ExceptionHelper;
+import com.telenor.product.repository.ProductRepository;
+import com.telenor.product.service.ProductReaderService;
+import com.telenor.product.service.ProductRepositoryImpl;
 
 @Configuration
 public class ProductConfigurator {

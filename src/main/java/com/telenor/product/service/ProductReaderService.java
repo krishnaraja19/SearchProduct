@@ -1,4 +1,4 @@
-package com.krishna.product.service;
+package com.telenor.product.service;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import com.krishna.product.entity.Product;
+import com.telenor.product.entity.Product;
 
 @Service
 public class ProductReaderService {

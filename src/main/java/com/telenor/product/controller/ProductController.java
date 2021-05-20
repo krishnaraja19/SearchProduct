@@ -1,4 +1,4 @@
-package com.krishna.product.controller;
+package com.telenor.product.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.krishna.product.configuration.ProductConfigurator;
-import com.krishna.product.entity.Product;
-import com.krishna.product.exception.ResourceNotFoundException;
-import com.krishna.product.service.ProductRepositoryImpl;
+import com.telenor.product.configuration.ProductConfigurator;
+import com.telenor.product.entity.Product;
+import com.telenor.product.exception.ResourceNotFoundException;
+import com.telenor.product.service.ProductRepositoryImpl;
 
 @RestController
 @RequestMapping("/api/")
@@ -49,7 +49,7 @@ public class ProductController {
 		if (products.isEmpty()) {
 			throw new ResourceNotFoundException("Data is not available");
 		}
-		result.put("Data", products);
+		result.put("data", products);
 		return new ResponseEntity<Map<String, List<Product>>>(result, HttpStatus.OK);
 	}
 }

@@ -1,4 +1,4 @@
-package com.krishna.product.exception;
+package com.telenor.product.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
 	/**

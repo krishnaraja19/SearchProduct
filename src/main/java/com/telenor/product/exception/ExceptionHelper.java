@@ -1,4 +1,4 @@
-package com.krishna.product.exception;
+package com.telenor.product.exception;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
-import com.krishna.product.model.ErrorDetails;
+import com.telenor.product.model.ErrorDetails;
 
 @ControllerAdvice
 public class ExceptionHelper {

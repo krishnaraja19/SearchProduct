@@ -1,8 +1,8 @@
-package com.krishna.product.repository;
+package com.telenor.product.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.krishna.product.entity.Product;
+import com.telenor.product.entity.Product;
 
 import java.util.List;
 

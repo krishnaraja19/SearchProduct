@@ -1,4 +1,4 @@
-package com.krishna.product.service;
+package com.telenor.product.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.hibernate.query.criteria.internal.predicate.IsEmptyPredicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
-import com.krishna.product.entity.Product;
-import com.krishna.product.repository.ProductRepository;
+import com.telenor.product.entity.Product;
+import com.telenor.product.repository.ProductRepository;
 
 public class ProductRepositoryImpl {
 	

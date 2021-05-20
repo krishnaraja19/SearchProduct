@@ -1,4 +1,4 @@
-package com.krishna.product.model;
+package com.telenor.product.model;
 
 import java.util.Date;
 
