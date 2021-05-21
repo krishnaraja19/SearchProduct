@@ -33,7 +33,7 @@ public class InputValidationService {
 		
 		if(storeAddress == null)
 			isStoreAddressValid=true;
-		else if(lenghtofInput(storeAddress) == 2)
+		else if(lenghtofInput(storeAddress) == 2 || lenghtofInput(storeAddress) == 1)
 			isStoreAddressValid=true;
 		
 		
