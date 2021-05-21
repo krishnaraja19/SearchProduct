@@ -103,7 +103,7 @@ class ProductApplicationTests {
 	}
 
 	@Test
-	void contextLoads() {
+	void getDataWithTypeAndPropertyAndPrice() {
 		Map<String, String> inputs = new HashMap<>();
 		inputs.put("type", "subscription");
 		inputs.put("max_price", "37");
