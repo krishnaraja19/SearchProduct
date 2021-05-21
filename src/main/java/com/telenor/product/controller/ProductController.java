@@ -45,11 +45,11 @@ public class ProductController {
 			@RequestParam(value = "properties") Optional<String> Properties,
 			@RequestParam(value = "min_price") Optional<Double> Min_Price,
 			@RequestParam(value = "max_price") Optional<Double> Max_Price,
-			@RequestParam(value = "city") Optional<String> City) {
+			@RequestParam(value = "store_address") Optional<String> storeAddress) {
 		Map<String, List<Product>> result = new HashMap<String, List<Product>>();
 		List<Product> products = null;
 		LOGGER.info("Getting the data from Product repository");
-		products = productServiceImpl.findByMultipleParameter(Type, Properties, Min_Price, Max_Price, City);
+		products = productServiceImpl.findByMultipleParameter(Type, Properties, Min_Price, Max_Price, storeAddress);
 		if (products.isEmpty()) {
 			LOGGER.info("No data available for the request");
 			throw new ResourceNotFoundException("Data is not available");

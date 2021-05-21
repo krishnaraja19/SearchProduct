@@ -28,7 +28,7 @@ public class ProductRepositoryImpl {
 			
 		
 	}
-	public List<Product> findByMultipleParameter(Optional<String> type,Optional<String> properties,Optional<Double> minPrice,Optional<Double> maxPrice,Optional<String> City){
+	public List<Product> findByMultipleParameter(Optional<String> type,Optional<String> properties,Optional<Double> minPrice,Optional<Double> maxPrice,Optional<String> storeAddress){
 		
 		LOGGER.info("Getting the records as per the reauest parameter");
 		
@@ -37,10 +37,10 @@ public class ProductRepositoryImpl {
 		String locProperties = properties.map(Object::toString).orElse("");	
 		Double locMinPrice = minPrice.map(p->p.doubleValue()).orElse(0.0);	
 		Double locMaxPrice = maxPrice.map(p->p.doubleValue()).orElse(1000.0);
-		String locCity = City.map(Object::toString).orElse("");
-		locCity = percentage.concat(locCity.concat(percentage));
+		String locAddress = storeAddress.map(Object::toString).orElse("");
+		locAddress = percentage.concat(locAddress.concat(percentage));
 		
-		List<Product> products = productRepo.findByTypeAndProperties(locType, locProperties, locMinPrice,locMaxPrice,locCity);
+		List<Product> products = productRepo.findByTypeAndProperties(locType, locProperties, locMinPrice,locMaxPrice,locAddress);
 		return products;
 		
 	}
