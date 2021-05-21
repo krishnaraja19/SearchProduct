@@ -9,21 +9,26 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import com.telenor.product.ProductApplication;
 import com.telenor.product.entity.Product;
 
 @Service
 public class ProductReaderService {
+	private static final Logger LOGGER=LoggerFactory.getLogger(ProductReaderService.class);
 	public List<Product> readData(Resource filePath) {
-
+		LOGGER.info("Reading data from the Data.csv");
 		List<Product> productList = new ArrayList<Product>();
 		try (BufferedReader csvReader = new BufferedReader(new InputStreamReader(filePath.getInputStream()))) {
 
 			productList = csvReader.lines().skip(1).map(mapToProduct).collect(Collectors.toList());
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
+			LOGGER.equals(ex.getMessage());
 		}
 		return productList;
 

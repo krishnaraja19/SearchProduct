@@ -18,11 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.telenor.product.configuration.ProductConfigurator;
 import com.telenor.product.entity.Product;
 import com.telenor.product.exception.ResourceNotFoundException;
+import com.telenor.product.service.ProductReaderService;
 import com.telenor.product.service.ProductRepositoryImpl;
 
 @RestController
 @RequestMapping("/api/")
 public class ProductController {
+	
+	private static final Logger LOGGER=LoggerFactory.getLogger(ProductController.class);
 	@Autowired
 	ProductRepositoryImpl productServiceImpl;
 	
@@ -45,9 +48,12 @@ public class ProductController {
 			@RequestParam(value = "city") Optional<String> City) {
 		Map<String, List<Product>> result = new HashMap<String, List<Product>>();
 		List<Product> products = null;
+		LOGGER.info("Getting the data from Product repository");
 		products = productServiceImpl.findByMultipleParameter(Type, Properties, Min_Price, Max_Price, City);
 		if (products.isEmpty()) {
+			LOGGER.info("No data available for the request");
 			throw new ResourceNotFoundException("Data is not available");
+			
 		}
 		result.put("data", products);
 		return new ResponseEntity<Map<String, List<Product>>>(result, HttpStatus.OK);

@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.hibernate.query.criteria.internal.predicate.IsEmptyPredicate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -13,6 +15,7 @@ import com.telenor.product.entity.Product;
 import com.telenor.product.repository.ProductRepository;
 
 public class ProductRepositoryImpl {
+	private static final Logger LOGGER=LoggerFactory.getLogger(ProductRepositoryImpl.class);
 	
 	@Autowired
 	ProductRepository productRepo;
@@ -20,11 +23,14 @@ public class ProductRepositoryImpl {
 	    private int batchSize;
 	
 	public void bulkSave(List<Product> products) {
+		LOGGER.info("Saving the data into H2 inmemory database");
 		List<Product> batchProduct = productRepo.saveAll(products);
 			
 		
 	}
 	public List<Product> findByMultipleParameter(Optional<String> type,Optional<String> properties,Optional<Double> minPrice,Optional<Double> maxPrice,Optional<String> City){
+		
+		LOGGER.info("Getting the records as per the reauest parameter");
 		
 		String percentage="%";
 		String locType = type.map(Object::toString).orElse("");
