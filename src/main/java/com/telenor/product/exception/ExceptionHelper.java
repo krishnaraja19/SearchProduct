@@ -23,10 +23,17 @@ public class ExceptionHelper {
 	        return new ResponseEntity(errorDetails,HttpStatus.NOT_FOUND); 
 	    }
 	    
+	    @ExceptionHandler( MultipleValuesException.class)
+	    public ResponseEntity<?> handleMultipleValuesException(MultipleValuesException ex,WebRequest request) {
+	    	ErrorDetails errorDetails = new ErrorDetails(new Date(),ex.getMessage(),request.getDescription(false));
+	    	logger.error("Multiple Input value exception: ",ex.getMessage());
+	        return new ResponseEntity(errorDetails,HttpStatus.BAD_REQUEST); 
+	    }
+	    
 	   
 	    @ExceptionHandler(value = { Exception.class })
 	    public ResponseEntity<?> handleGlobalException(Exception ex,WebRequest request) {
-	    	ErrorDetails errorDetails = new ErrorDetails(new Date(),"Internal API Error",request.getDescription(false));
+	    	ErrorDetails errorDetails = new ErrorDetails(new Date(),"Internal API Error"+ex.getMessage(),request.getDescription(false));
 	    	logger.error("Exception : ",ex.getMessage());
 	        return new ResponseEntity(errorDetails,HttpStatus.INTERNAL_SERVER_ERROR);
 	    }

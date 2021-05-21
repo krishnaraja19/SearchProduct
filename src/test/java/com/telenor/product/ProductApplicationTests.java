@@ -107,9 +107,9 @@ class ProductApplicationTests {
 		Map<String, String> inputs = new HashMap<>();
 		inputs.put("type", "subscription");
 		inputs.put("max_price", "37");
-		inputs.put("city", "Stockholm");
+		inputs.put("store_address", "Johansson gärdet, Stockholm");
 		
-		String url="http://localhost:"+port+"/api/product?type="+inputs.get("type")+"&max_price="+inputs.get("max_price")+"&city="+inputs.get("city");
+		String url="http://localhost:"+port+"/api/product?type="+inputs.get("type")+"&max_price="+inputs.get("max_price")+"&store_address="+inputs.get("store_address");
 		Map<String, List<Product>> data = this.testRestTemplate
 				.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Map<String, List<Product>>> (){})
 				.getBody();
